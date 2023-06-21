@@ -6,6 +6,12 @@ The interactive features as of now are:-
 1. Error detection.
 2. Generating Suggestions (will replace this to auto-completion in Future Work).
 Please mail to rohitsaluja22@gmail.com or file an issue for any suggestions related to auto-completion.
+---
+# New Features Added
+- Bold and Unbold individual texts
+- Superscript and Subscript texts
+
+---
 
 Following information is updated on the fly, after correction of each page:-
 1. A domain specific dictionary which is uploaded on the fly.
