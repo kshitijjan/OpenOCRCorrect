@@ -31,6 +31,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    isBold = false;
+    isSuperscript = false;
+    isSubscript = false;
     ui->textBrowser->setMouseTracking(true);
     ui->textBrowser->installEventFilter(this);
     ui->textBrowser->setLineWrapColumnOrWidth(QTextEdit::NoWrap);
@@ -2429,3 +2432,38 @@ void MainWindow::on_actionEnglish_triggered()
 {
     HinFlag = 0 , SanFlag = 0;
 }
+
+void MainWindow::on_actionBold_Unbold_triggered()
+{
+    QTextCharFormat format;
+    format.setFontWeight(isBold ? QFont::Normal : QFont::Bold);
+    QTextCursor cursor = ui->textEdit->textCursor();
+    cursor.mergeCharFormat(format);
+    ui->textEdit->mergeCurrentCharFormat(format);
+    isBold = !isBold;
+}
+
+
+void MainWindow::on_actionSuperscript_triggered()
+{
+    QTextCharFormat format;
+    format.setVerticalAlignment(QTextCharFormat::AlignSuperScript);
+    format.setFontPointSize(ui->textEdit->currentFont().pointSize());
+    ui->textEdit->mergeCurrentCharFormat(format);
+
+    isSuperscript = !isSuperscript;
+    isSubscript = false;
+}
+
+
+void MainWindow::on_actionSubscript_triggered()
+{
+    QTextCharFormat format;
+    format.setVerticalAlignment(QTextCharFormat::AlignSubScript);
+    format.setFontPointSize(ui->textEdit->currentFont().pointSize());
+    ui->textEdit->mergeCurrentCharFormat(format);
+
+    isSubscript = !isSubscript;
+    isSuperscript = false;
+}
+

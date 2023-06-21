@@ -146,11 +146,20 @@ private slots:
 
     void on_actionEnglish_triggered();
 
+    void on_actionBold_Unbold_triggered();
+
+    void on_actionSuperscript_triggered();
+
+    void on_actionSubscript_triggered();
+
 private:
     Ui::MainWindow *ui;
 
     QString mFilename;
     QString mFilenamejpeg;
+    bool isSuperscript;
+    bool isSubscript;
+    bool isBold;
 };
 
 #endif // MAINWINDOW_H
